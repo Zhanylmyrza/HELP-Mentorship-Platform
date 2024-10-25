@@ -1,0 +1,138 @@
+[
+    {
+        "model": "accounts.useraccount",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$720000$gCaizM7i30EuN0CojSKd2b$jgO+sW1zzG5aj1O/6650jbeSjPom/Gzf04jSjo+vsh4=",
+            "last_login": null,
+            "is_superuser": false,
+            "email": "angella.williams@gmail.com",
+            "full_name": "Angella Williams",
+            "is_active": true,
+            "is_staff": false,
+            "image": "images/angella_oLn4r0C.jpg",
+            "job_title": "Intern",
+            "education": "Columbia University",
+            "experience": "Completed multiple internships focusing on graphic design and visual communication, worked with international NGOs on branding initiatives, and developed user-centered design solutions",
+            "skills": "Graphic design, Adobe Creative Suite, UI design, branding, typography, project management",
+            "can_ask_for_help": false,
+            "free_times": "",
+            "cost_of_mentoring": 0,
+            "currency": "USD",
+            "is_online": false,
+            "groups": [],
+            "user_permissions": [],
+            "saved_persons": [
+                12
+            ]
+        }
+    },
+    {
+        "model": "accounts.useraccount",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$720000$qKsNcMd3GCufZHFi7ogifQ$tmgK1wwANYY1JnbLY/P4nQtRD1bJzch9tbAoA1wOjjo=",
+            "last_login": null,
+            "is_superuser": false,
+            "email": "david.martinez@gmail.com",
+            "full_name": "David Martinez",
+            "is_active": true,
+            "is_staff": false,
+            "image": "images/alex.jpg",
+            "job_title": "Entrepreneurship",
+            "education": "Stanford University",
+            "experience": "Worked on multiple startup projects, successfully raised funding for two ventures, and participated in the Y Combinator startup accelerator.",
+            "skills": "Business development, strategic planning, fundraising, market analysis, leadership, innovation management, and startup scaling.",
+            "can_ask_for_help": true,
+            "free_times": "Fridays after 3 PM and weekends",
+            "cost_of_mentoring": 50,
+            "currency": "usd",
+            "is_online": false,
+            "groups": [],
+            "user_permissions": [],
+            "saved_persons": []
+        }
+    },
+    {
+        "model": "accounts.useraccount",
+        "pk": 3,
+        "fields": {
+            "password": "pbkdf2_sha256$720000$Jh3pUCmWG9i91jKcA1S10D$1L07p6xZHlyDJCXw+n0BULJv5ZIuAEEekI+GcGIjSnc=",
+            "last_login": null,
+            "is_superuser": false,
+            "email": "isabel.carlot@gmail.com",
+            "full_name": "Isabel Carlton",
+            "is_active": true,
+            "is_staff": false,
+            "image": "images/ayana_sJ2gcNl.jpg",
+            "job_title": "Dentist",
+            "education": "Harvard University ",
+            "experience": "10 years of experience in private practice, specialized in cosmetic dentistry and orthodontics, with extensive work in community dental health programs.",
+            "skills": "Cosmetic dentistry, orthodontics, oral surgery, patient management, dental radiography, restorative procedures, and sedation techniques.",
+            "can_ask_for_help": true,
+            "free_times": "Tuesdays and Thursdays after 4 PM",
+            "cost_of_mentoring": 58,
+            "currency": "USD",
+            "is_online": false,
+            "groups": [],
+            "user_permissions": [],
+            "saved_persons": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "accounts.useraccount",
+        "pk": 4,
+        "fields": {
+            "password": "pbkdf2_sha256$720000$vVLyS5hINoMOBlWztSGuQc$eGzgMVNFfE++Efgq17oJIkeXmnDAcAnp4zngmTguazU=",
+            "last_login": null,
+            "is_superuser": false,
+            "email": "matteo.bianchi@gmail.com",
+            "full_name": "Matteo Bianchi",
+            "is_active": true,
+            "is_staff": false,
+            "image": "images/jackson_p09YIhQ.jpg",
+            "job_title": "Law",
+            "education": "Yale University",
+            "experience": "Worked at top law firms, specialized in intellectual property and corporate law, and interned with the American Civil Liberties Union (ACLU)",
+            "skills": "Legal research, case analysis, contract drafting, litigation support, negotiation, intellectual property law, and corporate compliance",
+            "can_ask_for_help": false,
+            "free_times": "",
+            "cost_of_mentoring": 0,
+            "currency": "USD",
+            "is_online": false,
+            "groups": [],
+            "user_permissions": [],
+            "saved_persons": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "accounts.useraccount",
+        "pk": 12,
+        "fields": {
+            "password": "pbkdf2_sha256$720000$SnTzL271lvpDtVHgRufl33$bYVUZWC+8pWrzSyK8Fl9pbkloXxanKfSoNiTbwYR2lY=",
+            "last_login": null,
+            "is_superuser": false,
+            "email": "zhanylmyrza.bakirova123@gmail.com",
+            "full_name": "Zhanylmyrza Bakirova",
+            "is_active": true,
+            "is_staff": false,
+            "image": "images/zhzhzh.jpeg",
+            "job_title": "Software Engeneer",
+            "education": "International Ala-Too University",
+            "experience": "Completed internships at Neobis (4 months) and UWIS (4 months), developed software solutions for local businesses, and contributed to open-source projects",
+            "skills": "Python, JavaScript, Java, Django, React, Spring, PostgreSQL, Redis, algorithm design, version control (Git), etc.",
+            "can_ask_for_help": true,
+            "free_times": "Tuesdays and Thursdays after 4 PM",
+            "cost_of_mentoring": 25,
+            "currency": "usd",
+            "is_online": false,
+            "groups": [],
+            "user_permissions": [],
+            "saved_persons": []
+        }
+    }
+]

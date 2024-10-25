@@ -1,0 +1,182 @@
+[
+    {
+        "model": "chat.chatmodel",
+        "pk": 44,
+        "fields": {
+            "sender": "angella.williams@gmail.com",
+            "message": "Hey Zhanylmyrza, I saw you worked on some open-source projects. That's really cool! I’d love to learn more about how you managed your contributions and kept up with the project requirements",
+            "thread_name": "chat_12-1",
+            "timestamp": "2024-10-25T06:14:43.727Z"
+        }
+    },
+    {
+        "model": "chat.chatmodel",
+        "pk": 45,
+        "fields": {
+            "sender": "zhanylmyrza.bakirova123@gmail.com",
+            "message": "Hi Angella! Thanks, I really enjoyed it. Working on open-source projects was a great way to enhance my skills, especially with version control and collaborative coding. I noticed you have experience with NGOs; how do you approach branding projects for such diverse organizations?",
+            "thread_name": "chat_12-1",
+            "timestamp": "2024-10-25T06:15:21.519Z"
+        }
+    },
+    {
+        "model": "chat.chatmodel",
+        "pk": 46,
+        "fields": {
+            "sender": "angella.williams@gmail.com",
+            "message": "Branding for NGOs can be a bit challenging because the messaging needs to balance professionalism with a sense of social impact. I usually start by understanding the core mission and then find a visual language that communicates that effectively. What about you—how do you approach building software solutions for local businesses?",
+            "thread_name": "chat_12-1",
+            "timestamp": "2024-10-25T06:15:51.359Z"
+        }
+    },
+    {
+        "model": "chat.chatmodel",
+        "pk": 47,
+        "fields": {
+            "sender": "zhanylmyrza.bakirova123@gmail.com",
+            "message": "For local businesses, I focus on their immediate needs first, such as automating tasks or enhancing their online presence. It’s a great learning opportunity because it pushes me to solve real-world problems while also understanding their business workflows. Have you ever thought about incorporating more interactive elements into your design work?",
+            "thread_name": "chat_12-1",
+            "timestamp": "2024-10-25T06:16:10.739Z"
+        }
+    },
+    {
+        "model": "chat.chatmodel",
+        "pk": 48,
+        "fields": {
+            "sender": "angella.williams@gmail.com",
+            "message": "Definitely! I’ve started exploring more UI/UX design principles to make my visuals more engaging and interactive. I’ve been working on user interface projects, experimenting with animations and micro-interactions. Maybe we could collaborate on something combining your coding skills and my design expertise!",
+            "thread_name": "chat_12-1",
+            "timestamp": "2024-10-25T06:16:57.280Z"
+        }
+    },
+    {
+        "model": "chat.chatmodel",
+        "pk": 49,
+        "fields": {
+            "sender": "zhanylmyrza.bakirova123@gmail.com",
+            "message": "That sounds like a great idea! It would be amazing to bring our skills together and create something unique. Let’s keep in touch and see if we can find a project to collaborate on.",
+            "thread_name": "chat_12-1",
+            "timestamp": "2024-10-25T06:17:17.174Z"
+        }
+    },
+    {
+        "model": "chat.chatmodel",
+        "pk": 50,
+        "fields": {
+            "sender": "isabel.carlot@gmail.com",
+            "message": "Hi Zhanylmyrza! I saw you’re a software engineer. You must be great with problem-solving. Have you ever thought about applying your skills to healthcare tech?",
+            "thread_name": "chat_12-3",
+            "timestamp": "2024-10-25T06:37:19.815Z"
+        }
+    },
+    {
+        "model": "chat.chatmodel",
+        "pk": 51,
+        "fields": {
+            "sender": "zhanylmyrza.bakirova123@gmail.com",
+            "message": "Hey Isabel! Yes, I’ve actually considered it. Healthcare tech is fascinating, especially when it comes to building solutions for patient management or even improving medical imaging analysis. Do you think software could help streamline dental practices?",
+            "thread_name": "chat_12-3",
+            "timestamp": "2024-10-25T06:37:36.882Z"
+        }
+    },
+    {
+        "model": "chat.chatmodel",
+        "pk": 52,
+        "fields": {
+            "sender": "isabel.carlot@gmail.com",
+            "message": "Absolutely. There’s a lot of potential for automating administrative tasks, like scheduling or patient follow-ups, and even for advanced areas like digital smile design. If you’re ever interested in exploring that, it would be great to brainstorm some ideas together.",
+            "thread_name": "chat_12-3",
+            "timestamp": "2024-10-25T06:37:56.655Z"
+        }
+    },
+    {
+        "model": "chat.chatmodel",
+        "pk": 53,
+        "fields": {
+            "sender": "zhanylmyrza.bakirova123@gmail.com",
+            "message": "That sounds intriguing! I’d love to dive deeper into healthcare applications. Let’s definitely chat more about how we can combine tech with dentistry to make a real impact.",
+            "thread_name": "chat_12-3",
+            "timestamp": "2024-10-25T06:38:14.345Z"
+        }
+    },
+    {
+        "model": "chat.chatmodel",
+        "pk": 54,
+        "fields": {
+            "sender": "zhanylmyrza.bakirova123@gmail.com",
+            "message": "Hey! I could use your advice. I’m working on a project to build a platform for small businesses, but I’m struggling with creating a solid business model. Do you have any tips on how to make it more appealing to potential investors?",
+            "thread_name": "chat_12-2",
+            "timestamp": "2024-10-25T06:42:56.469Z"
+        }
+    },
+    {
+        "model": "chat.chatmodel",
+        "pk": 55,
+        "fields": {
+            "sender": "david.martinez@gmail.com",
+            "message": "Absolutely, I’d be happy to help! One approach is to focus on a clear value proposition. What specific problem does your platform solve for small businesses, and why is it better than existing solutions? Investors want to see that there’s a strong market need and that your solution is unique.",
+            "thread_name": "chat_12-2",
+            "timestamp": "2024-10-25T06:44:14.679Z"
+        }
+    },
+    {
+        "model": "chat.chatmodel",
+        "pk": 56,
+        "fields": {
+            "sender": "zhanylmyrza.bakirova123@gmail.com",
+            "message": "Good point. It automates daily tasks, like inventory management and customer engagement, with easy integrations. I just need to make it stand out more. Any suggestions on how I could refine my pitch?",
+            "thread_name": "chat_12-2",
+            "timestamp": "2024-10-25T06:44:26.699Z"
+        }
+    },
+    {
+        "model": "chat.chatmodel",
+        "pk": 57,
+        "fields": {
+            "sender": "david.martinez@gmail.com",
+            "message": "Definitely emphasize the time and cost savings your platform offers, as well as any early traction or feedback you’ve received. And if you can, include some numbers—like the potential market size and growth rate. It’ll make your pitch more compelling!",
+            "thread_name": "chat_12-2",
+            "timestamp": "2024-10-25T06:44:48.065Z"
+        }
+    },
+    {
+        "model": "chat.chatmodel",
+        "pk": 58,
+        "fields": {
+            "sender": "zhanylmyrza.bakirova123@gmail.com",
+            "message": "Great advice! I'll work on adding those details and run the pitch by you again for feedback. Thanks so much!",
+            "thread_name": "chat_12-2",
+            "timestamp": "2024-10-25T06:45:04.392Z"
+        }
+    },
+    {
+        "model": "chat.chatmodel",
+        "pk": 59,
+        "fields": {
+            "sender": "zhanylmyrza.bakirova123@gmail.com",
+            "message": "Hey! I have a quick question about contracts for my startup. What's the most important clause I should include?",
+            "thread_name": "chat_12-4",
+            "timestamp": "2024-10-25T06:47:00.126Z"
+        }
+    },
+    {
+        "model": "chat.chatmodel",
+        "pk": 60,
+        "fields": {
+            "sender": "matteo.bianchi@gmail.com",
+            "message": "Definitely the termination clause. It outlines how either party can exit the contract and protects you if things don’t go as planned.",
+            "thread_name": "chat_12-4",
+            "timestamp": "2024-10-25T06:48:12.588Z"
+        }
+    },
+    {
+        "model": "chat.chatmodel",
+        "pk": 61,
+        "fields": {
+            "sender": "zhanylmyrza.bakirova123@gmail.com",
+            "message": "Got it! Thanks for the tip!",
+            "thread_name": "chat_12-4",
+            "timestamp": "2024-10-25T06:48:25.631Z"
+        }
+    }
+]
