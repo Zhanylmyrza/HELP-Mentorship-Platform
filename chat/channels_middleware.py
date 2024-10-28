@@ -1,10 +1,10 @@
 from channels.middleware import BaseMiddleware
-from rest_framework.exceptions import AuthenticationFailed
+
+# from rest_framework.exceptions import AuthenticationFailed
 from django.db import close_old_connections
 from channels.db import database_sync_to_async
 
 
-# from accounts.tokenauthentication import JWTAuthentication
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework_simplejwt.exceptions import InvalidToken
 
@@ -49,13 +49,3 @@ class JWTWebsocketMiddleware(BaseMiddleware):
     @database_sync_to_async
     def get_user(self, validated_token):
         return self.authentication.get_user(validated_token)
-        # authentication = JWTAuthentication()
-        # try:
-        #     user = await authentication.authenticate_websocket(scope, token)
-        #     if user is not None:
-        #         scope["user"] = user
-        #     else:
-        #         await send({"type": "websocket.close", "code": 4000})
-        #     return await super().__call__(scope, receive, send)
-        # except AuthenticationFailed:
-        #     await send({"type": "websocket.close", "code": 4002})
