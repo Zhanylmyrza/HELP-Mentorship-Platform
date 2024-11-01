@@ -6,12 +6,11 @@ from channels.routing import ProtocolTypeRouter, URLRouter
 from chat.channels_middleware import JWTWebsocketMiddleware
 from chat.routing import websocket_urlpatterns
 
-django_asgi_app = get_asgi_application()
-
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "auth_system.settings")
 django.setup()
 
+django_asgi_app = get_asgi_application()
 
 application = ProtocolTypeRouter(
     {
