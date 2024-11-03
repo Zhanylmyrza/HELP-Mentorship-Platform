@@ -18,8 +18,14 @@ SECRET_KEY = config("SECRET_KEY")
 # DEBUG = env.bool("DEBUG", default=True)
 DEBUG = True
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
+# ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
 
+ALLOWED_HOSTS = [
+    os.environ.get("EC2_IP", "13.61.11.193"),
+    "localhost",
+    "127.0.0.1",
+    "*",  # Only use during development
+]
 
 INSTALLED_APPS = [
     "chat",
