@@ -48,24 +48,6 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt.token_blacklist",
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
-
-CORS_ALLOW_ALL_ORIGINS = True
-
-MIDDLEWARE = [
-    "social_django.middleware.SocialAuthExceptionMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.security.SecurityMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
-]
 
 ROOT_URLCONF = "auth_system.urls"
 
@@ -171,27 +153,89 @@ MEDIA_ROOT = "media/"
 MEDIA_URL = "https://{zhzh}.s3.eu-north-1.amazonaws.com/media/"
 
 
+# REST_FRAMEWORK = {
+#     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"],
+#     "DEFAULT_AUTHENTICATION_CLASSES": [
+#         "rest_framework_simplejwt.authentication.JWTAuthentication",
+#     ],
+# }
+
+
+# AUTHENTICATION_BACKENDS = {
+#     "social_core.backends.google.GoogleOAuth2",
+#     "django.contrib.auth.backends.ModelBackend",
+# }
+
+
+# SIMPLE_JWT = {
+#     "AUTH_HEADER_TYPES": ("JWT",),
+#     "ACCESS_TOKEN_LIFETIME": timedelta(days=30),
+#     "REFRESH_TOKEN_LIFETIME": timedelta(days=365),
+#     "USER_ID_FIELD": "email",
+#     "TOKEN_SERIALIZER": "accounts.serializers.CustomTokenObtainPairSerializer",
+#     "JWT_PAYLOAD_HANDLER": "accounts.apps.my_jwt_payload_handler",
+# }
+
+# DJOSER = {
+#     "LOGIN_FIELD": "email",
+#     "USER_CREATE_PASSWORD_RETYPE": True,
+#     "USERNAME_CHANGED_EMAIL_CONFIRMATION": True,
+#     "PASSWORD_CHANGED_EMAIL_CONFIRMATION": True,
+#     "SEND_CONFIRMATION_EMAIL": True,
+#     "SET_USERNAME_RETYPE": True,
+#     "SET_PASSWORD_RETYPE": True,
+#     "PASSWORD_RESET_CONFIRM_URL": "password/reset/confirm/{uid}/{token}",
+#     "USERNAME_RESET_CONFIRM_URL": "email/reset/confirm/{uid}/{token}",
+#     "ACTIVATION_URL": "activate/{uid}/{token}",
+#     "SEND_ACTIVATION_EMAIL": True,
+#     "SERIALIZERS": {
+#         "user": "accounts.serializers.UserSerializer",
+#         "user_delete": "djoser.serializers.UserDeleteSerializer",
+#     },
+# }
+
+
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",
+# ]
+
+# CORS_ALLOW_ALL_ORIGINS = True
+
+# MIDDLEWARE = [
+#     "social_django.middleware.SocialAuthExceptionMiddleware",
+#     "django.middleware.common.CommonMiddleware",
+#     "whitenoise.middleware.WhiteNoiseMiddleware",
+#     "corsheaders.middleware.CorsMiddleware",
+#     "django.middleware.security.SecurityMiddleware",
+#     "django.contrib.sessions.middleware.SessionMiddleware",
+#     "django.middleware.common.CommonMiddleware",
+#     "django.contrib.auth.middleware.AuthenticationMiddleware",
+#     "django.contrib.messages.middleware.MessageMiddleware",
+#     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+# ]
+
+# Authentication settings
+
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"],
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework_simplejwt.authentication.JWTAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.BasicAuthentication",
     ],
 }
 
-
-AUTHENTICATION_BACKENDS = {
+AUTHENTICATION_BACKENDS = (
     "social_core.backends.google.GoogleOAuth2",
     "django.contrib.auth.backends.ModelBackend",
-}
-
+)
 
 SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": ("JWT",),
     "ACCESS_TOKEN_LIFETIME": timedelta(days=30),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=365),
     "USER_ID_FIELD": "email",
-    "TOKEN_SERIALIZER": "accounts.serializers.CustomTokenObtainPairSerializer",
-    "JWT_PAYLOAD_HANDLER": "accounts.apps.my_jwt_payload_handler",
+    "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
 }
 
 DJOSER = {
@@ -207,10 +251,32 @@ DJOSER = {
     "ACTIVATION_URL": "activate/{uid}/{token}",
     "SEND_ACTIVATION_EMAIL": True,
     "SERIALIZERS": {
+        "user_create": "accounts.serializers.UserCreateSerializer",
         "user": "accounts.serializers.UserSerializer",
+        "current_user": "accounts.serializers.UserSerializer",
         "user_delete": "djoser.serializers.UserDeleteSerializer",
     },
 }
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:8001",
+    "http://13.61.11.193",
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "social_django.middleware.SocialAuthExceptionMiddleware",
+]
 
 AUTH_USER_MODEL = "accounts.UserAccount"
