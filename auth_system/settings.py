@@ -24,7 +24,7 @@ ALLOWED_HOSTS = [
     os.environ.get("EC2_IP", "13.61.11.193"),
     "localhost",
     "127.0.0.1",
-    "*",  # Only use during development
+    "*",
 ]
 
 INSTALLED_APPS = [
