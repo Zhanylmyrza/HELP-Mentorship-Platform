@@ -28,6 +28,7 @@ ALLOWED_HOSTS = [
 ]
 
 INSTALLED_APPS = [
+    "storages",
     "chat",
     "channels",
     "daphne",
@@ -147,8 +148,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 MEDIA_ROOT = "media/"
 # MEDIA_URL = "/media/"
-MEDIA_URL = "https://{zhzh}.s3.eu-north-1.amazonaws.com/media/"
+MEDIA_URL = "https://{zhzh}.s3.eu-north-1.amazonaws.com/"
 
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
 # REST_FRAMEWORK = {
 #     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"],
