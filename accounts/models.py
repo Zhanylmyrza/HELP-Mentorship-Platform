@@ -29,7 +29,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     image = models.ImageField(
-        null=True, upload_to="images/", storage=MediaStorage(), blank=True
+        null=True, upload_to="", storage=MediaStorage(), blank=True
     )
     job_title = models.CharField(max_length=400, null=True, blank=True)
     education = models.CharField(max_length=800, null=True, blank=True)
