@@ -92,9 +92,10 @@ AWS_STORAGE_BUCKET_NAME = config("AWS_STORAGE_BUCKET_NAME")
 AWS_S3_SIGNATURE_VERSION = config("AWS_S3_SIGNATURE_VERSION")
 AWS_S3_REGION_NAME = config("AWS_S3_REGION_NAME")
 AWS_S3_FILE_OVERWRITE = config("AWS_S3_FILE_OVERWRITE")
+AWS_DEFAULT_ACL = "public-read"
 AWS_DEFAULT_ACL = config("AWS_DEFAULT_ACL")
 AWS_S3_VERIFY = config("AWS_S3_VERIFY")
-DEFAULT_FILE_STORAGE = config("DEFAULT_FILE_STORAGE")
+# DEFAULT_FILE_STORAGE = config("DEFAULT_FILE_STORAGE")
 
 AWS_S3_CUSTOM_DOMAIN = (
     f"{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com"
@@ -103,12 +104,36 @@ AWS_S3_CUSTOM_DOMAIN = (
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "build/static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATIC_URL = "static/"
+# STATIC_URL = "static/"
+STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
 
-MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
+
+MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
 MEDIA_ROOT = ""
 
-DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+# DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+    },
+    "staticfiles": {
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    },
+}
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+    }
+}
+
+AWS_S3_OBJECT_PARAMETERS = {
+    "CacheControl": "max-age=86400",
+}
+
+AWS_QUERYSTRING_AUTH = False
+
 
 CHANNEL_LAYERS = {
     "default": {
