@@ -5,6 +5,8 @@ from django.contrib.auth.models import (
     BaseUserManager,
 )
 
+from backend.auth_system.custom_storage import MediaStorage
+
 
 class UserAccountManager(BaseUserManager):
     def create_user(self, email, full_name, password=None):
@@ -26,7 +28,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     full_name = models.CharField(max_length=400)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    image = models.ImageField(null=True, upload_to="images/")
+    image = models.ImageField(null=True, upload_to="images/", storage=MediaStorage())
     job_title = models.CharField(max_length=400, null=True, blank=True)
     education = models.CharField(max_length=800, null=True, blank=True)
     experience = models.TextField(null=True, blank=True)

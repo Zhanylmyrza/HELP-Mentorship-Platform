@@ -93,9 +93,22 @@ AWS_S3_SIGNATURE_VERSION = config("AWS_S3_SIGNATURE_VERSION")
 AWS_S3_REGION_NAME = config("AWS_S3_REGION_NAME")
 AWS_S3_FILE_OVERWRITE = config("AWS_S3_FILE_OVERWRITE")
 AWS_DEFAULT_ACL = config("AWS_DEFAULT_ACL")
-AWS_S3_VERITY = config("AWS_S3_VERITY")
+AWS_S3_VERIFY = config("AWS_S3_VERIFY")
 DEFAULT_FILE_STORAGE = config("DEFAULT_FILE_STORAGE")
 
+AWS_S3_CUSTOM_DOMAIN = (
+    f"{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com"
+)
+
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "build/static")]
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "static/"
+
+MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
+MEDIA_ROOT = ""
+
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
 CHANNEL_LAYERS = {
     "default": {
@@ -140,17 +153,11 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-STATIC_URL = "static/"
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "build/static")]
+# MEDIA_ROOT = "media/"
+# # MEDIA_URL = "/media/"
+# MEDIA_URL = "https://{zhzh}.s3.eu-north-1.amazonaws.com/"
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-
-MEDIA_ROOT = "media/"
-# MEDIA_URL = "/media/"
-MEDIA_URL = "https://{zhzh}.s3.eu-north-1.amazonaws.com/"
-
-DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
 # REST_FRAMEWORK = {
 #     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"],
