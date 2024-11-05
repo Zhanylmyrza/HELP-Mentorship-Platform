@@ -135,12 +135,27 @@ AWS_S3_OBJECT_PARAMETERS = {
 AWS_QUERYSTRING_AUTH = False
 
 
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [
+#                 f"rediss://:{config('REDIS_PASSWORD')}@{config('REDIS_URL')}:{config('REDIS_PORT')}"
+#             ],
+#         },
+#     },
+# }
+
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
             "hosts": [
-                f"rediss://:{config('REDIS_PASSWORD')}@{config('REDIS_URL')}:{config('REDIS_PORT')}"
+                {
+                    "host": "enabling-starling-23143.upstash.io",
+                    "port": "6379",
+                    "password": config("REDIS_PASSWORD"),
+                }
             ],
         },
     },
