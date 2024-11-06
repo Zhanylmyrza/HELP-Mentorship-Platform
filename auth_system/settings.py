@@ -20,12 +20,12 @@ DEBUG = True
 
 # ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
 
-ALLOWED_HOSTS = [
-    os.environ.get("EC2_IP", "13.61.11.193"),
-    "localhost",
-    "127.0.0.1",
-    "*",
-]
+# ALLOWED_HOSTS = [
+#     os.environ.get("EC2_IP", "13.61.11.193"),
+#     "localhost",
+#     "127.0.0.1",
+#     "*",
+# ]
 
 INSTALLED_APPS = [
     "storages",
@@ -146,21 +146,6 @@ AWS_QUERYSTRING_AUTH = False
 #     },
 # }
 
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [
-                {
-                    "host": "enabling-starling-23143.upstash.io",
-                    "port": "6379",
-                    "password": config("REDIS_PASSWORD"),
-                }
-            ],
-        },
-    },
-}
-
 
 EMAIL_BACKEND = config("EMAIL_BACKEND")
 EMAIL_HOST = "smtp.gmail.com"
@@ -192,6 +177,64 @@ USE_I18N = True
 USE_TZ = True
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Update ALLOWED_HOSTS to properly handle your domain
+ALLOWED_HOSTS = [
+    "13.61.11.193",
+    "localhost",
+    "127.0.0.1",
+]
+
+# Update CORS settings to allow WebSocket connections
+CORS_ALLOWED_ORIGINS = [
+    "http://13.61.11.193",
+    "http://localhost:3000",
+    "http://127.0.0.1:8000",
+]
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^http://\d+\.\d+\.\d+\.\d+$",
+]
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [
+                f"rediss://:{config('REDIS_PASSWORD')}@{config('REDIS_URL')}:{config('REDIS_PORT')}"
+            ],
+            "ssl_cert_reqs": None,  # Add this for SSL verification in production
+            "retry_on_timeout": True,  # Add retry mechanism
+            "socket_connect_timeout": 30,  # Increase timeout
+        },
+    },
+}
+
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_PORT = True
 
 
 # MEDIA_ROOT = "media/"
@@ -304,11 +347,11 @@ DJOSER = {
     },
 }
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:8001",
-    "http://13.61.11.193",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",
+#     "http://127.0.0.1:8001",
+#     "http://13.61.11.193",
+# ]
 
 CORS_ALLOW_CREDENTIALS = True
 
