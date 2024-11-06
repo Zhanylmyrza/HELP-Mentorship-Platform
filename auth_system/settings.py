@@ -107,10 +107,11 @@ AWS_S3_CUSTOM_DOMAIN = (
 AWS_S3_USE_SSL = True
 
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "build/static")]
+STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "build/static")]
 # STATIC_URL = "static/"
-STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
+# STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
 
 
 MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
@@ -136,6 +137,9 @@ CACHES = {
 AWS_S3_OBJECT_PARAMETERS = {
     "CacheControl": "max-age=86400",
 }
+
+AWS_LOCATION = "static"
+
 
 AWS_QUERYSTRING_AUTH = False
 
