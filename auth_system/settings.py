@@ -27,6 +27,9 @@ DEBUG = True
 #     "*",
 # ]
 
+# rfrbv nj xelysv j,hfpjv yt cj[hfyztncmcz njtcnm rjhjxt]
+
+
 INSTALLED_APPS = [
     "storages",
     "chat",
