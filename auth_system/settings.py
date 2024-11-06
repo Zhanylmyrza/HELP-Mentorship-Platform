@@ -270,8 +270,8 @@ USE_X_FORWARDED_HOST = True
 USE_X_FORWARDED_PORT = True
 
 
-# MEDIA_ROOT = "media/"
-# # MEDIA_URL = "/media/"
+# MEDIA_ROOT = "/media/"
+MEDIA_URL = "/media/"
 # MEDIA_URL = "https://{zhzh}.s3.eu-north-1.amazonaws.com/"
 
 
