@@ -288,7 +288,7 @@ USE_X_FORWARDED_PORT = True
 #     "http://localhost:3000",
 # ]
 
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 # MIDDLEWARE = [
 #     "social_django.middleware.SocialAuthExceptionMiddleware",
