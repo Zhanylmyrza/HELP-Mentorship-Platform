@@ -130,13 +130,14 @@ STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "build/static")]
 
+MEDIA_ROOT= "/media/"
 
 # STATIC_URL = "static/"
 # STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
 
 
-MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
-MEDIA_ROOT = ""
+# MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
+# MEDIA_ROOT = ""
 
 # DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
