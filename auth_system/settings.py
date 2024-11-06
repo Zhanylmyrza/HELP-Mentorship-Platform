@@ -122,10 +122,19 @@ AWS_S3_USE_SSL = True
 
 
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# STATIC_ROOT = os.path.join(BASE_DIR, "static") || "/home/ubuntu/Skill-Swap-AWS/static"
+
+if not os.getenv("DEBUG", "True") == "True":
+    STATIC_ROOT = "/home/ubuntu/Skill-Swap-AWS/static"
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "build/static")]
+
+STATIC_ROOT = "/home/ubuntu/Skill-Swap-AWS/static"
+
 # STATIC_URL = "static/"
 # STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
 
