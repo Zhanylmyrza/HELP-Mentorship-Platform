@@ -130,7 +130,7 @@ STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "build/static")]
 
-MEDIA_ROOT= "/media/"
+MEDIA_ROOT = "/media/"
 
 # STATIC_URL = "static/"
 # STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
@@ -221,9 +221,10 @@ ALLOWED_HOSTS = [
 
 # Update CORS settings to allow WebSocket connections
 CORS_ALLOWED_ORIGINS = [
-    "http://13.61.11.193",
     "http://localhost:3000",
+    "http://13.61.11.193",
     "http://127.0.0.1:8000",
+    "http://127.0.0.1:8001",
 ]
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
@@ -231,22 +232,22 @@ CORS_ALLOWED_ORIGIN_REGEXES = [
 ]
 
 CORS_ALLOW_METHODS = [
-    "DELETE",
     "GET",
-    "OPTIONS",
-    "PATCH",
     "POST",
     "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS",
 ]
 CORS_ALLOW_HEADERS = [
     "accept",
     "accept-encoding",
-    "authorization",
     "content-type",
+    "authorization",
+    "x-csrftoken",
     "dnt",
     "origin",
     "user-agent",
-    "x-csrftoken",
     "x-requested-with",
 ]
 
@@ -390,10 +391,10 @@ CORS_ALLOW_CREDENTIALS = True
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
