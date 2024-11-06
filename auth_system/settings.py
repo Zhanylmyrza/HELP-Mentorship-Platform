@@ -17,6 +17,20 @@ SECRET_KEY = config("SECRET_KEY")
 
 # DEBUG = env.bool("DEBUG", default=True)
 DEBUG = True
+import certifi
+
+os.environ["REQUESTS_CA_BUNDLE"] = certifi.where()
+os.environ["SSL_CERT_FILE"] = certifi.where()
+
+# Добавьте эти настройки S3
+AWS_S3_USE_SSL = True
+AWS_S3_VERIFY = certifi.where()
+
+
+import urllib3
+
+urllib3.disable_warnings()
+AWS_S3_VERIFY = False
 
 # ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
 
@@ -109,6 +123,8 @@ AWS_S3_USE_SSL = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "build/static")]
 # STATIC_URL = "static/"
 # STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
@@ -127,7 +143,7 @@ MEDIA_ROOT = ""
 #         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
 #     },
 # }
-STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+# STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
 
 CACHES = {
