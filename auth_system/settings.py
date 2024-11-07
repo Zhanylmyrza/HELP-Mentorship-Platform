@@ -152,11 +152,11 @@ MEDIA_ROOT = "/media/"
 # STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
 
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-    }
-}
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+#     }
+# }
 
 AWS_S3_OBJECT_PARAMETERS = {
     "CacheControl": "max-age=86400",
@@ -222,7 +222,7 @@ ALLOWED_HOSTS = [
 # Update CORS settings to allow WebSocket connections
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "http://13.61.11.193",
+    "https://13.61.11.193",
     "http://127.0.0.1:8000",
     "http://127.0.0.1:8001",
 ]
