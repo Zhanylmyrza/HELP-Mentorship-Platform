@@ -165,7 +165,7 @@ STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "build/static")]
 
-MEDIA_ROOT = "/media/"
+MEDIA_ROOT = ""
 
 
 AWS_S3_OBJECT_PARAMETERS = {
@@ -232,12 +232,12 @@ CHANNEL_LAYERS = {
 }
 
 
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "http")
 USE_X_FORWARDED_HOST = True
 USE_X_FORWARDED_PORT = True
 
 
-MEDIA_URL = "/media/"
+MEDIA_URL = ""
 
 
 REST_FRAMEWORK = {
