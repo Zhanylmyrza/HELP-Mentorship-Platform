@@ -15,14 +15,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config("SECRET_KEY")
 
-# DEBUG = env.bool("DEBUG", default=True)
 DEBUG = True
 import certifi
 
 os.environ["REQUESTS_CA_BUNDLE"] = certifi.where()
 os.environ["SSL_CERT_FILE"] = certifi.where()
 
-# Добавьте эти настройки S3
 AWS_S3_USE_SSL = True
 AWS_S3_VERIFY = certifi.where()
 
@@ -32,19 +30,9 @@ import urllib3
 urllib3.disable_warnings()
 AWS_S3_VERIFY = False
 
-# ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
-
-# ALLOWED_HOSTS = [
-#     os.environ.get("EC2_IP", "13.61.11.193"),
-#     "localhost",
-#     "127.0.0.1",
-#     "*",
-# ]
-
-# rfrbv nj xelysv j,hfpjv yt cj[hfyztncmcz njtcnm rjhjxt]
-
 
 INSTALLED_APPS = [
+    "corsheaders",
     "storages",
     "chat",
     "channels",
@@ -56,7 +44,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "corsheaders",
     "rest_framework",
     "djoser",
     "auth_system",
@@ -67,7 +54,55 @@ INSTALLED_APPS = [
 ]
 
 
+MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "social_django.middleware.SocialAuthExceptionMiddleware",
+]
 ROOT_URLCONF = "auth_system.urls"
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://13.61.11.193",
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1:8001",
+    "https://13.61.11.193",
+]
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^http://\d+\.\d+\.\d+\.\d+$",
+]
+
+CORS_ALLOWED_METHODS = [
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS",
+]
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "content-type",
+    "authorization",
+    "x-csrftoken",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-requested-with",
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
 
 TEMPLATES = [
@@ -112,7 +147,7 @@ AWS_S3_FILE_OVERWRITE = config("AWS_S3_FILE_OVERWRITE")
 AWS_DEFAULT_ACL = "public-read"
 AWS_DEFAULT_ACL = config("AWS_DEFAULT_ACL")
 AWS_S3_VERIFY = config("AWS_S3_VERIFY")
-# DEFAULT_FILE_STORAGE = config("DEFAULT_FILE_STORAGE")
+
 
 AWS_S3_CUSTOM_DOMAIN = (
     f"{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com"
@@ -132,31 +167,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "build/static")]
 
 MEDIA_ROOT = "/media/"
 
-# STATIC_URL = "static/"
-# STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
-
-
-# MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
-# MEDIA_ROOT = ""
-
-# DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-
-# STORAGES = {
-#     "default": {
-#         "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
-#     },
-#     "staticfiles": {
-#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
-#     },
-# }
-# STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-
-
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-#     }
-# }
 
 AWS_S3_OBJECT_PARAMETERS = {
     "CacheControl": "max-age=86400",
@@ -166,18 +176,6 @@ AWS_LOCATION = "static"
 
 
 AWS_QUERYSTRING_AUTH = False
-
-
-# CHANNEL_LAYERS = {
-#     "default": {
-#         "BACKEND": "channels_redis.core.RedisChannelLayer",
-#         "CONFIG": {
-#             "hosts": [
-#                 f"rediss://:{config('REDIS_PASSWORD')}@{config('REDIS_URL')}:{config('REDIS_PORT')}"
-#             ],
-#         },
-#     },
-# }
 
 
 EMAIL_BACKEND = config("EMAIL_BACKEND")
@@ -212,44 +210,12 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-# Update ALLOWED_HOSTS to properly handle your domain
 ALLOWED_HOSTS = [
     "13.61.11.193",
     "localhost",
     "127.0.0.1",
 ]
 
-# Update CORS settings to allow WebSocket connections
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://13.61.11.193",
-    "http://127.0.0.1:8000",
-    "http://127.0.0.1:8001",
-]
-
-CORS_ALLOWED_ORIGIN_REGEXES = [
-    r"^http://\d+\.\d+\.\d+\.\d+$",
-]
-
-CORS_ALLOW_METHODS = [
-    "GET",
-    "POST",
-    "PUT",
-    "PATCH",
-    "DELETE",
-    "OPTIONS",
-]
-CORS_ALLOW_HEADERS = [
-    "accept",
-    "accept-encoding",
-    "content-type",
-    "authorization",
-    "x-csrftoken",
-    "dnt",
-    "origin",
-    "user-agent",
-    "x-requested-with",
-]
 
 CHANNEL_LAYERS = {
     "default": {
@@ -258,9 +224,9 @@ CHANNEL_LAYERS = {
             "hosts": [
                 f"rediss://:{config('REDIS_PASSWORD')}@{config('REDIS_URL')}:{config('REDIS_PORT')}"
             ],
-            "ssl_cert_reqs": None,  # Add this for SSL verification in production
-            "retry_on_timeout": True,  # Add retry mechanism
-            "socket_connect_timeout": 30,  # Increase timeout
+            "ssl_cert_reqs": None,
+            "retry_on_timeout": True,
+            "socket_connect_timeout": 30,
         },
     },
 }
@@ -271,73 +237,8 @@ USE_X_FORWARDED_HOST = True
 USE_X_FORWARDED_PORT = True
 
 
-# MEDIA_ROOT = "/media/"
 MEDIA_URL = "/media/"
-# MEDIA_URL = "https://{zhzh}.s3.eu-north-1.amazonaws.com/"
 
-
-# REST_FRAMEWORK = {
-#     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"],
-#     "DEFAULT_AUTHENTICATION_CLASSES": [
-#         "rest_framework_simplejwt.authentication.JWTAuthentication",
-#     ],
-# }
-
-
-# AUTHENTICATION_BACKENDS = {
-#     "social_core.backends.google.GoogleOAuth2",
-#     "django.contrib.auth.backends.ModelBackend",
-# }
-
-
-# SIMPLE_JWT = {
-#     "AUTH_HEADER_TYPES": ("JWT",),
-#     "ACCESS_TOKEN_LIFETIME": timedelta(days=30),
-#     "REFRESH_TOKEN_LIFETIME": timedelta(days=365),
-#     "USER_ID_FIELD": "email",
-#     "TOKEN_SERIALIZER": "accounts.serializers.CustomTokenObtainPairSerializer",
-#     "JWT_PAYLOAD_HANDLER": "accounts.apps.my_jwt_payload_handler",
-# }
-
-# DJOSER = {
-#     "LOGIN_FIELD": "email",
-#     "USER_CREATE_PASSWORD_RETYPE": True,
-#     "USERNAME_CHANGED_EMAIL_CONFIRMATION": True,
-#     "PASSWORD_CHANGED_EMAIL_CONFIRMATION": True,
-#     "SEND_CONFIRMATION_EMAIL": True,
-#     "SET_USERNAME_RETYPE": True,
-#     "SET_PASSWORD_RETYPE": True,
-#     "PASSWORD_RESET_CONFIRM_URL": "password/reset/confirm/{uid}/{token}",
-#     "USERNAME_RESET_CONFIRM_URL": "email/reset/confirm/{uid}/{token}",
-#     "ACTIVATION_URL": "activate/{uid}/{token}",
-#     "SEND_ACTIVATION_EMAIL": True,
-#     "SERIALIZERS": {
-#         "user": "accounts.serializers.UserSerializer",
-#         "user_delete": "djoser.serializers.UserDeleteSerializer",
-#     },
-# }
-
-
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",
-# ]
-
-CORS_ALLOW_ALL_ORIGINS = True
-
-# MIDDLEWARE = [
-#     "social_django.middleware.SocialAuthExceptionMiddleware",
-#     "django.middleware.common.CommonMiddleware",
-#     "whitenoise.middleware.WhiteNoiseMiddleware",
-#     "corsheaders.middleware.CorsMiddleware",
-#     "django.middleware.security.SecurityMiddleware",
-#     "django.contrib.sessions.middleware.SessionMiddleware",
-#     "django.middleware.common.CommonMiddleware",
-#     "django.contrib.auth.middleware.AuthenticationMiddleware",
-#     "django.contrib.messages.middleware.MessageMiddleware",
-#     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-# ]
-
-# Authentication settings
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"],
@@ -381,25 +282,5 @@ DJOSER = {
     },
 }
 
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",
-#     "http://127.0.0.1:8001",
-#     "http://13.61.11.193",
-# ]
-
-CORS_ALLOW_CREDENTIALS = True
-
-MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "social_django.middleware.SocialAuthExceptionMiddleware",
-]
 
 AUTH_USER_MODEL = "accounts.UserAccount"
