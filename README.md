@@ -91,9 +91,9 @@ http://localhost:8000/api/docs/
 
 ## Links
 
-- **Technical Thesis: https://drive.google.com/drive/folders/1TH414MMkCnlQz8YqiZtsd-ywD9VWazCQ?usp=sharing
-- **Project Demo: https://www.youtube.com/watch?v=F4uLV9qbzY4
-- **Deployed link to web application: https://34.132.9.23/
+- **Technical Thesis:** https://drive.google.com/drive/folders/1TH414MMkCnlQz8YqiZtsd-ywD9VWazCQ?usp=sharing
+- **Project Demo:** https://www.youtube.com/watch?v=F4uLV9qbzY4
+- **Deployed link to web application:** https://34.132.9.23/
 
 
 ---
